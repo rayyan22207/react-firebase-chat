@@ -33,7 +33,7 @@ const Login = () => {
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
-
+    console.log(username, email, password)
     // VALIDATE INPUTS
     if (!username || !email || !password)
       return toast.warn("Please enter inputs!");
@@ -49,7 +49,8 @@ const Login = () => {
       }
 
       const res = await createUserWithEmailAndPassword(auth, email, password);
-
+      console.log(res);
+      
       const imgUrl = await upload(avatar.file);
 
       await setDoc(doc(db, "users", res.user.uid), {
