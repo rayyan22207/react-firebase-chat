@@ -30,8 +30,9 @@ const Chat = () => {
   const endRef = useRef(null);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [chat.messages]);
+  endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chat?.messages]);
+
 
   useEffect(() => {
     const unSub = onSnapshot(doc(db, "chats", chatId), (res) => {
